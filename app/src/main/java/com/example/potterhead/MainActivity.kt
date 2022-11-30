@@ -2,12 +2,7 @@ package com.example.potterhead
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
-import com.example.potterhead.api.BooksApi
 import com.example.potterhead.databinding.ActivityMainBinding
-import com.example.potterhead.retrofit.RetrofitHelper
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,21 +14,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setListeners()
+        addFragment()
     }
 
-    private fun setListeners() {
-        binding.books.setOnClickListener {
-            fetchBooks()
-        }
-    }
-
-    private fun fetchBooks() {
-        val booksApi = RetrofitHelper.getInstance().create(BooksApi::class.java)
-
-        lifecycleScope.launchWhenCreated {
-            val result = booksApi.getAllBooks()
-            Log.d(TAG, "Result: ${result.body()}")
+    private fun addFragment() {
+        supportFragmentManager.apply {
+            beginTransaction().replace(R.id.mainContainer, MainFragment())
+                .addToBackStack(MainFragment.TAG).commit()
         }
     }
 
