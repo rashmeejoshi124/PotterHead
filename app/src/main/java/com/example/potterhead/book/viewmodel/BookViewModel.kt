@@ -9,11 +9,14 @@ import com.example.potterhead.book.repo.BookRepository
 import com.example.potterhead.book.repo.BookRepositoryImpl
 import com.example.potterhead.model.Book
 import com.example.potterhead.retrofit.RetrofitHelper
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class BookViewModel constructor(
-    private val bookRepository: BookRepository = BookRepositoryImpl()
+@HiltViewModel
+class BookViewModel @Inject constructor(
+    private val bookRepository: BookRepository
 ) : ViewModel() {
 
     private var _booksList = MutableLiveData<List<Book>>()
