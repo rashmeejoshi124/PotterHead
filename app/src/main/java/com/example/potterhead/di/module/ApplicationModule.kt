@@ -1,5 +1,6 @@
 package com.example.potterhead.di.module
 
+import com.example.potterhead.BuildConfig
 import com.example.potterhead.api.BooksApi
 import com.example.potterhead.book.repo.BookRepository
 import com.example.potterhead.book.repo.BookRepositoryImpl
@@ -16,7 +17,7 @@ import javax.inject.Singleton
 class ApplicationModule {
 
     @Provides
-    fun provideBaseUrl() = "https://legacy--api.herokuapp.com/"
+    fun provideBaseUrl() = BuildConfig.BASE_URL
 
     @Provides
     @Singleton
