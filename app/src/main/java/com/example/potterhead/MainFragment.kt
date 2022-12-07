@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
         vm.booksList.observe(viewLifecycleOwner) {
             val bookList = mutableListOf<String>()
             it.forEach { book ->
-                bookList.add(book.title)
+                bookList.add(book.imageUrl)
             }
             binding.bookList.text = bookList.toString()
         }
