@@ -1,7 +1,6 @@
 package com.example.potterhead.api
 
 import com.example.potterhead.model.Book
-import com.example.potterhead.model.BookList
 import retrofit2.Response
 import retrofit2.http.HTTP
 
