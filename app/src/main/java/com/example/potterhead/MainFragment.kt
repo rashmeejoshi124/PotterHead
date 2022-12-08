@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.bumptech.glide.Glide
 import com.example.potterhead.book.viewmodel.BookViewModel
 import com.example.potterhead.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +38,7 @@ class MainFragment : Fragment() {
                 bookList.add(book.imageUrl)
             }
             binding.bookList.text = bookList.toString()
+            Glide.with(binding.root).load(bookList[0]).into(binding.image)
         }
 
     }
