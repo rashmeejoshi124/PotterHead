@@ -4,7 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.potterhead.base.ItemClickListener
 import com.example.potterhead.book.repo.BookRepository
+import com.example.potterhead.model.BaseClass
 import com.example.potterhead.model.Book
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
