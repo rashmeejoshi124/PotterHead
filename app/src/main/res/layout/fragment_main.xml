@@ -3,6 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.potterhead.book.viewmodel.BookViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.example.potterhead.book.adapter.BookListAdapter" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,24 +31,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textview.MaterialTextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_book_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/bookList"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/books"
-            android:layout_marginTop="20dp"
-            android:paddingHorizontal="28dp"
-            tools:text="Harry Potter"
-            android:visibility="gone"
-            android:textSize="18sp" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="fitCenter"
-            app:layout_constraintTop_toBottomOf="@id/bookList"
-            android:id="@+id/image"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:setAdapter="@{adapter}"
+            app:spanCount="2"
+            app:submitList="@{viewModel.booksList}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
